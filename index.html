@@ -3,10 +3,37 @@
   <head>
     <meta charset="utf-8">
     <title>JS Lab</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <button type="button" name="start" onclick="startGame()">Start</button>
+
+    <section>
+      <button type="button" name="attack" onclick="startCombat('attack')">Attack</button>
+      <button type="button" name="heal"  onclick="startCombat('heal')">Heal</button>
+      <button type="button" name="quit"  onclick="startCombat('quit')">Quit</button>
+
+      <h1 id="msg"></h1>
+    </section>
+
+    <section>
+      <h2>Player Stats</h2>
+      <section id="p-stats">
+        <div>Name</div><div>Health</div><div>Heal Count</div><div>Wins</div>
+        <div></div><div></div><div></div><div></div>
+      </section>
+
+      <h2>Enemy Stats</h2>
+      <section id="e-stats">
+        <div>Name</div><div>Health</div>
+        <div></div><div></div>
+      </section>
+    </section>
 
     <script src="script.js"></script>
   </body>
 </html>
+
+<!-- Displays the character’s name, health, heal count, and wins.
+Displays Grant’s name and health. -->

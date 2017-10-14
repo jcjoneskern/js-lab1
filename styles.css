@@ -1,0 +1,18 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+#p-stats, #e-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#p-stats div {
+  flex-basis: 25%;
+}
+
+#e-stats div {
+  flex-basis: 50%;
+}
