@@ -3,6 +3,24 @@ body {
   text-align: center;
 }
 
+h1 {
+  font-size: 1.2rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+button {
+  text-transform: uppercase;
+}
+
+#stat-box {
+  width: 65%;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
 #p-stats, #e-stats {
   display: flex;
   justify-content: center;

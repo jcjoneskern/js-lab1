@@ -9,31 +9,31 @@
   <body>
     <button type="button" name="start" onclick="startGame()">Start</button>
 
-    <section>
-      <button type="button" name="attack" onclick="startCombat('attack')">Attack</button>
-      <button type="button" name="heal"  onclick="startCombat('heal')">Heal</button>
-      <button type="button" name="quit"  onclick="startCombat('quit')">Quit</button>
+    <main>
+      <section>
+        <button type="button" name="attack" onclick="startCombat('attack')">Attack</button>
+        <button type="button" name="heal"  onclick="startCombat('heal')">Heal</button>
+        <button type="button" name="quit"  onclick="startCombat('quit')">Quit</button>
 
-      <h1 id="msg"></h1>
-    </section>
-
-    <section>
-      <h2>Player Stats</h2>
-      <section id="p-stats">
-        <div>Name</div><div>Health</div><div>Heal Count</div><div>Wins</div>
-        <div></div><div></div><div></div><div></div>
+        <h1 id="msg"></h1>
       </section>
 
-      <h2>Enemy Stats</h2>
-      <section id="e-stats">
-        <div>Name</div><div>Health</div>
-        <div></div><div></div>
+      <section id="stat-box">
+        <h2>Player Stats</h2>
+        <section id="p-stats">
+          <div>Name</div><div>Health</div><div>Heal Count</div><div>Wins</div>
+          <div id="p-name"></div><div id="p-health"></div><div id="p-heal"></div><div id="p-wins"></div>
+        </section>
+
+        <h2>Enemy Stats</h2>
+        <section id="e-stats">
+          <div>Name</div><div>Health</div>
+          <div id="e-name"></div><div id="e-health"></div>
+        </section>
       </section>
-    </section>
+    </main>
+
 
     <script src="script.js"></script>
   </body>
 </html>
-
-<!-- Displays the character’s name, health, heal count, and wins.
-Displays Grant’s name and health. -->

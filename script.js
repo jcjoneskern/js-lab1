@@ -11,30 +11,11 @@
 // Choose to quit
 // Each time the user selects an action, the app will display text to let the user know what has happened that round.
 
-var player = {
-  name: "",
-  health: 40,
-  wins: 0,
-  healCount: 0,
-  attack: function() {
-    return Math.floor((Math.random() * 3) + 1);
-  },
-  heal: function() {
-    this.healCount++;
-    return Math.floor((Math.random() * 10) + 1);
-  }
-}
-
-var grant = {
-  name: "Grant",
-  health: 10,
-  attack: function() {
-    return Math.floor((Math.random() * 5) + 1);
-  }
-}
+var player;
+var grant;
 
 function startGame() {
-  var player = {
+  player = {
     name: "",
     health: 40,
     wins: 0,
@@ -48,7 +29,7 @@ function startGame() {
     }
   }
 
-  var grant = {
+  grant = {
     name: "Grant",
     health: 10,
     attack: function() {
@@ -56,7 +37,8 @@ function startGame() {
     }
   }
 
-  player.name = prompt("What is your name?")
+  player.name = prompt("What is your name?");
+  updateStats();
 }
 
 function startCombat(action) {
@@ -65,35 +47,62 @@ function startCombat(action) {
     player.health -= grant.attack();
     grant.health -= player.attack();
 
-    console.log(player.name + " has " + player.health + "hp");
-    console.log("Grant has " + grant.health + "hp");
+    var message = player.name + " has " + player.health + "hp. Grant has " + grant.health + "hp.";
 
     if (player.health <= 0) {
-      console.log("You lose! Grant wins!");
+      message += " You lose! Grant wins!";
     } else if (grant.health <= 0 && player.wins === 2) {
       player.wins++;
-      console.log("Grant is defeated! " + player.name + " wins!");
+      message += " Grant is defeated! " + player.name + " wins!";
     } else if (grant.health <= 0) {
       player.wins++;
-      console.log("Grant is defeated! You must still win " + (3 - player.wins) + " more time(s).");
+      message += " Grant is defeated! You must still win " + (3 - player.wins) + " more time(s).";
       grant.health = 10;
     }
+    updateMessage(message);
+    updateStats();
   }
 
   if (action === "heal") {
     if (player.healCount < 2) {
       player.heal();
-      console.log(player.name + " heals and has " + player.health + "hp. " + player.name + " has used " + player.healCount + " out of 2 heal casts.");
+      var message = player.name + " heals and has " + player.health + "hp. " + player.name + " has used " + player.healCount + " out of 2 heal casts.";
+
       player.health -= grant.attack();
-      console.log("Grant attacks! " + player.name + " now has " + player.health + "hp");
+      message += "Grant attacks! " + player.name + " now has " + player.health + "hp";
+
+      if (player.health <=0) {
+        message += " You lose! Grant wins!"
+      }
+
+      updateMessage(message);
+      updateStats();
     } else {
-      console.log(player.name + " can no longer heal! Choose another option.");
+      var message = player.name + " can no longer heal! Choose another option.";
+
+      updateMessage(message);
     }
   }
 
   if (action === "quit") {
-    console.log("Got away safely!");
+    var message = "Got away safely!";
+
+    updateMessage(message);
   }
+}
+
+function updateMessage(message) {
+  document.getElementById("msg").textContent = message;
+}
+
+function updateStats() {
+  document.getElementById("p-name").textContent = player.name;
+  document.getElementById("p-health").textContent = player.health;
+  document.getElementById("p-heal").textContent = player.healCount;
+  document.getElementById("p-wins").textContent = player.wins;
+
+  document.getElementById("e-name").textContent = grant.name;
+  document.getElementById("e-health").textContent = grant.health;
 }
 
 // Build Specifications:
