@@ -21,22 +21,31 @@ function startCombat(name) {
   var winCount = 0;
 
   while (userHealth > 0) {
-    userHealth -= getDamage();
-    grantHealth -= getDamage();
+    var userChoice = prompt("Attack or Quit?");
 
-    console.log(name + " has " + userHealth + "hp");
-    console.log("Grant has " + grantHealth + "hp");
+    if (userChoice.toLowerCase() === "attack") {
+      userHealth -= getDamage();
+      grantHealth -= getDamage();
 
-    if (userHealth <= 0) {
-      console.log("You lose! Grant wins!");
-    } else if (grantHealth <= 0 && winCount === 6) {
-      winCount++;
-      console.log("Grant is defeated! " + name + " wins!");
+      console.log(name + " has " + userHealth + "hp");
+      console.log("Grant has " + grantHealth + "hp");
+
+      if (userHealth <= 0) {
+        console.log("You lose! Grant wins!");
+      } else if (grantHealth <= 0 && winCount === 2) {
+        winCount++;
+        console.log("Grant is defeated! " + name + " wins!");
+        break;
+      } else if (grantHealth <= 0) {
+        winCount++;
+        console.log("Grant is defeated! You must still win " + (3 - winCount) + " more time(s).");
+        grantHealth = 10;
+      }
+    } else if (userChoice.toLowerCase() === "quit") {
+      console.log("Got away safely!");
       break;
-    } else if (grantHealth <= 0) {
-      winCount++;
-      console.log("Grant is defeated! You must still win " + (3 - winCount) + " more time(s).");
-      grantHealth = 10;
+    } else {
+      alert("You must enter \"attack\" or \"quit.\"");
     }
   }
 }
@@ -51,3 +60,7 @@ startGame();
 // Each iteration of the loop will include a prompt that will ask the user if they would like to “attack” or “quit”.
 // If the user decides to attack, adjust the character’s health points and Grant’s health points based on the getDamage function.
 // If the user decides to quit, figure out a way to exit out of the loop and function.
+
+// potential pitfalls:
+// -perpetually being prompted w/o seeing console logs (this resolved itself?? not sure what happened)
+// -else condition if user does not type attack or quit (...........)
