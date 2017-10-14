@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <button type="button" name="start" onclick="startGame()">Start</button>
+    <button type="button" name="start" onclick="startGame()" id="start-btn">Start</button>
 
     <main>
       <section>
@@ -20,15 +20,29 @@
 
       <section id="stat-box">
         <h2>Player Stats</h2>
-        <section id="p-stats">
-          <div>Name</div><div>Health</div><div>Heal Count</div><div>Wins</div>
-          <div id="p-name"></div><div id="p-health"></div><div id="p-heal"></div><div id="p-wins"></div>
+        <section class="stats">
+          <div>Name</div>
+          <div>Health</div>
+          <div>Heal Count</div>
+          <div>Wins</div>
+
+          <div id="p-name"></div>
+          <div class="meter"><div id="p-health">&nbsp;</div></div>
+          <div class="meter"><div id="p-heal">&nbsp;</div></div>
+          <div class="meter"><div id="p-wins">&nbsp;</div></div>
         </section>
 
         <h2>Enemy Stats</h2>
-        <section id="e-stats">
-          <div>Name</div><div>Health</div>
-          <div id="e-name"></div><div id="e-health"></div>
+        <section class="stats">
+          <div></div>
+          <div>Name</div>
+          <div>Health</div>
+          <div></div>
+
+          <div></div>
+          <div id="e-name"></div>
+          <div class="meter"><div id="e-health">&nbsp;</div></div>
+          <div></div>
         </section>
       </section>
     </main>

@@ -9,28 +9,40 @@ h1 {
 
 h2 {
   font-size: 1.1rem;
+  margin: 0.75em;
 }
 
 button {
   text-transform: uppercase;
 }
 
+main {
+  display: none;
+}
+
 #stat-box {
   width: 65%;
   border: 1px solid black;
   margin: 0 auto;
+  padding-bottom: 0.75em;
 }
 
-#p-stats, #e-stats {
+.stats {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
-#p-stats div {
-  flex-basis: 25%;
+section > div {
+  flex-basis: 24%;
 }
 
-#e-stats div {
-  flex-basis: 50%;
+.meter {
+  border: 1px solid black;
+  box-sizing: border-box;
+  height: 24px;
+}
+
+div > div {
+  background: red;
 }
