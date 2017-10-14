@@ -1,26 +1,28 @@
-// JavaScript Lab Part One
-// Task: Prompt the user if they would like to play the game with two characters - the user and the Almighty Grant. If yes, prompt the user to name their character. Run a while loop that will iterate until either the character has beat Grant three times or the character has been defeated.
+// JavaScript Lab Part Two
+// Task: Expand on the game by adding functions that allow the user to start the game and get a number to use as damage.
 //
 // What does the application do?
-// The user is prompted to play a game. If the user chooses yes, the user is prompted to enter his or her name.
-// The game will use a while loop to simulate a turn-based fight between the user and Grant.
-// Each iteration of the while loop will remove health points from both the user and Grant until either the user or Grant has no health points remaining.
-// When health points for either the user is at 0, the round ends.
-// The game ends either when a) Grant has been defeated 3 times (has hit 0 health points 3 times) or b) the user has been defeated (hit 0 health points).
-// When the game is over, the application logs the winner.
+// The application now has a startGame function, which will prompt the user if they would like to play. Call the startCombat function after the user enters a character’s name.
+// There is a startCombat function. When executed, this will run the loop you created in Part One.
+// There is a getDamage function. This will return a number between 1 and 5 that will be used to decide how much damage the user and Grant will deal each round.
 
-var gameStart = prompt("Would you like to play a game?");
+function startGame() {
+  var gameStart = prompt("Would you like to play a game?");
 
-if (gameStart.toLowerCase() === "yes") {
-  var name = prompt("What is your name?");
+  if (gameStart.toLowerCase() === "yes") {
+    var name = prompt("What is your name?");
+    startCombat(name);
+  }
+}
+
+function startCombat(name) {
   var userHealth = 40;
   var grantHealth = 10;
   var winCount = 0;
 
-
   while (userHealth > 0) {
-    userHealth -= Math.floor((Math.random()*3) + 1);
-    grantHealth -= Math.floor((Math.random()*2) + 1);
+    userHealth -= getDamage();
+    grantHealth -= getDamage();
 
     console.log(name + " has " + userHealth + "hp");
     console.log("Grant has " + grantHealth + "hp");
@@ -39,10 +41,13 @@ if (gameStart.toLowerCase() === "yes") {
   }
 }
 
+function getDamage() {
+  return Math.floor((Math.random() * 5) + 1);
+}
+
+startGame();
+
 // Build Specifications:
-// The application must prompt the user for his or her name and use it throughout the game.
-// The user starts with 40 “health points.” Grant starts with 10 “health points.”
-// For each time that Grant’s health points hit 0, he is “defeated” and the user gains 1 “win.”
-// Grant’s health points are reset to 10 after each time he hits 0 points. The user’s health points never reset.
-// The application tracks the number of times the user has won.
-// The application logs the progress of the fight after each iteration of the loop.
+// Each iteration of the loop will include a prompt that will ask the user if they would like to “attack” or “quit”.
+// If the user decides to attack, adjust the character’s health points and Grant’s health points based on the getDamage function.
+// If the user decides to quit, figure out a way to exit out of the loop and function.
