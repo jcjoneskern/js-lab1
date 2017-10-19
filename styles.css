@@ -1,6 +1,11 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: serif;
   text-align: center;
+  background: #c0dbf8;
+}
+
+main {
+  display: none;
 }
 
 h1 {
@@ -14,15 +19,29 @@ h2 {
 
 button {
   text-transform: uppercase;
+  font-family: sans-serif;
+  background: #1f7a8c;
+  color: #fff;
+  border: 1px solid black;
+  padding: 10px;
 }
 
-main {
-  display: none;
+progress[value] {
+  -webkit-appearance: none;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #fff;
+  border: 1px solid black;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #1f7a8c;
 }
 
 #stat-box {
   width: 65%;
-  border: 1px solid black;
+  border: 2px solid black;
   margin: 0 auto;
   padding-bottom: 0.75em;
 }
@@ -33,16 +52,7 @@ main {
   flex-wrap: wrap;
 }
 
-section > div {
+section > progress, section > div {
   flex-basis: 24%;
-}
-
-.meter {
-  border: 1px solid black;
-  box-sizing: border-box;
-  height: 24px;
-}
-
-div > div {
-  background: red;
+  margin-bottom: 10px;
 }

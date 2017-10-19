@@ -99,12 +99,12 @@ function updateMessage(message) {
 
 function updateStats() {
   document.getElementById("p-name").textContent = player.name;
-  document.getElementById("p-health").style.width = (player.health/40) * 100 + "%";
-  document.getElementById("p-heal").style.width = 100 - ((player.healCount/2) * 100) + "%";
-  document.getElementById("p-wins").style.width = (player.wins/3) * 100 + "%";
+  document.getElementById("p-health").value = player.health;
+  document.getElementById("p-heal").value = player.healCount;
+  document.getElementById("p-wins").value = player.wins;
 
   document.getElementById("e-name").textContent = grant.name;
-  document.getElementById("e-health").style.width = (grant.health/10) * 100 + "%";
+  document.getElementById("e-health").value = grant.health;
 
   // document.getElementById("p-health").textContent = player.health;
   // document.getElementById("p-heal").textContent = player.healCount;

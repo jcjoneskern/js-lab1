@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>JS Lab</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -27,9 +26,9 @@
           <div>Wins</div>
 
           <div id="p-name"></div>
-          <div class="meter"><div id="p-health">&nbsp;</div></div>
-          <div class="meter"><div id="p-heal">&nbsp;</div></div>
-          <div class="meter"><div id="p-wins">&nbsp;</div></div>
+          <progress value="40" max="40" id="p-health"></progress>
+          <progress value="0" max="2" id="p-heal"></progress>
+          <progress value="0" max="3" id="p-wins"></progress>
         </section>
 
         <h2>Enemy Stats</h2>
@@ -41,7 +40,7 @@
 
           <div></div>
           <div id="e-name"></div>
-          <div class="meter"><div id="e-health">&nbsp;</div></div>
+          <progress value="10" max="10" id="e-health"></progress>
           <div></div>
         </section>
       </section>
