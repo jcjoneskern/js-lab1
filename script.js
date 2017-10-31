@@ -1,16 +1,3 @@
-// JavaScript Lab Part Four
-// Task: Implement a front-end for your game based on the wireframes given to you.
-//
-// What does the application do?
-// Displays the character’s name, health, heal count, and wins.
-// Displays Grant’s name and health.
-// Allows the user to click a button to:
-// Start the game
-// Choose to attack
-// Choose to heal
-// Choose to quit
-// Each time the user selects an action, the app will display text to let the user know what has happened that round.
-
 var player;
 var grant;
 
@@ -30,14 +17,14 @@ function startGame() {
   }
 
   grant = {
-    name: "Grant",
+    name: "GRANT",
     health: 10,
     attack: function() {
       return Math.floor((Math.random() * 5) + 1);
     }
   }
 
-  player.name = prompt("What is your name?");
+  player.name = prompt("What is your name?").toUpperCase();
   updateStats();
   document.getElementById("start-btn").style.display = "none";
   document.getElementsByTagName("main")[0].style.display = "block";
@@ -105,16 +92,4 @@ function updateStats() {
 
   document.getElementById("e-name").textContent = grant.name;
   document.getElementById("e-health").value = grant.health;
-
-  // document.getElementById("p-health").textContent = player.health;
-  // document.getElementById("p-heal").textContent = player.healCount;
-  // document.getElementById("p-wins").textContent = player.wins;
-  // document.getElementById("e-health").textContent = grant.health;
 }
-
-// Build Specifications:
-// The start button will execute the startGame function, which creates the character and Grant object.
-// The attack, heal, and quit buttons will execute the startCombat function with an argument describing what action they have chosen, which will no longer contain the while loop.
-// The startCombat function will execute two functions:
-// One function will update the character and Grant’s information within the DOM
-// One function will update the text relating to what has happened during the round

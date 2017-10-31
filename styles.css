@@ -1,7 +1,12 @@
+@font-face {
+  font-family: "pkmn";
+  src: url("PKMNRBYGSC.ttf");
+}
+
 body {
-  font-family: serif;
+  font-family: "pkmn", monospace;
   text-align: center;
-  background: #c0dbf8;
+  background: #fefcfd;
 }
 
 main {
@@ -18,12 +23,16 @@ h2 {
 }
 
 button {
+  font-family: "pkmn", monospace;
   text-transform: uppercase;
-  font-family: sans-serif;
-  background: #1f7a8c;
-  color: #fff;
-  border: 1px solid black;
+  background: #fefcfd;
+  color: #000;
+  border: 0; 
   padding: 10px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 progress[value] {
@@ -33,17 +42,22 @@ progress[value] {
 progress[value]::-webkit-progress-bar {
   background-color: #fff;
   border: 1px solid black;
+  border-radius: 5px;
 }
 
 progress[value]::-webkit-progress-value {
-  background-color: #1f7a8c;
+  background-color: #00f800;
+  border-radius: 5px;
 }
 
 #stat-box {
   width: 65%;
-  border: 2px solid black;
+  border-right: 3px solid #000;
+  border-bottom: 3px solid #000;
+  box-sizing: border-box;
   margin: 0 auto;
-  padding-bottom: 0.75em;
+  padding: 1em;
+  border-bottom-right-radius: 5px;
 }
 
 .stats {
@@ -55,4 +69,16 @@ progress[value]::-webkit-progress-value {
 section > progress, section > div {
   flex-basis: 24%;
   margin-bottom: 10px;
+}
+
+#button-box {
+  border: 6px double #000;
+  width: 65%;
+  margin: 1em auto;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+#msg {
+  margin: 0 auto;
 }
