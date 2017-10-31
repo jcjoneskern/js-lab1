@@ -5,21 +5,21 @@ class Player {
   constructor (name, health) {
     this.name = name;
     this.health = health;
-    this.attack = function() {
+  }
+  attack() {
       return Math.floor((Math.random() * 3) + 1);
-    }
   }
 }
 
 class User extends Player {
   constructor(name, health) {
     super(name, health, attack);
-    this.heal = function() {
-      this.healCount++;
-      this.health += Math.floor((Math.random() * 10) + 1);
-    }
     this.wins = 0;
     this.healCount = 0;
+  }
+  heal() {
+    this.healCount++;
+    this.health += Math.floor((Math.random() * 10) + 1);
   }
 }
 
